@@ -11,14 +11,12 @@ function onStartBtnClick() {
   timerId = setInterval(changeColorBody, 1000);
   startBtnRef.disabled = true;
   stopBtnRef.disabled = false;
-
 };
 
 function onStopBtnClick() {
   clearInterval(timerId);
   startBtnRef.disabled = false;
   stopBtnRef.disabled = true;
-
 };
 
 function changeColorBody() {

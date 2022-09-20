@@ -21,15 +21,16 @@ const options = {
   minuteIncrement: 1,
   onClose(selectedDates) {
 
-    if (selectedDates[0] < new Date) {
+    if (selectedDates[0] < Date.now()) {
       Notiflix.Notify.failure('Please choose a date in the future');
+      return;
     };
     startBtnRef.disabled = false;
 
     startBtnRef.addEventListener('click', () => {
       Notiflix.Notify.success('Timer started');
       timerId = setInterval(() => {
-        ms = selectedDates[0] - new Date;
+        ms = selectedDates[0] - Date.now();
         const updateTimerObj = convertMs(ms);
         
         updateTimer(updateTimerObj);
